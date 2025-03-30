@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <!-- 设置页面编码 -->
+    <meta charset="UTF-8">
+    <!-- 设置视口，使页面在不同设备上正确缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 页面标题 -->
+    <title>Haonan Cheng Photography</title>
+    <style>
+        /* 导入主要字体 - Calluna Regular */
+        @font-face {
+            font-family: 'Calluna';
+            src: url('Fonts/Calluna/Calluna-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* 导入次要字体 - 用于副标题，保留原来的字体作为备用 */
+        @font-face {
+            font-family: 'din-next-w01-light';
+            src: url('//static.parastorage.com/fonts/v2/eca8b0cd-45d8-43cf-aee7-ca462bc5497c/v1/din-next-w01-light.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* 导入中文字体 - 阿里巴巴普惠体 */
+        @font-face {
+            font-family: 'Alibaba';
+            src: url('Fonts/alibaba.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* 重置所有元素的默认样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* 主体样式 */
+        body {
+            font-family: 'Calluna', 'Alibaba', Arial, sans-serif;
+            overflow-x: hidden;
+            color: white;
+            background-color: #000;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            position: fixed; /* 固定在顶部 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* 确保导航栏在其他元素之上 */
+            padding: 20px 0;
+        }
+        
+        /* 导航栏内容容器 */
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* 网站标志样式 */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* 导航链接容器 */
+        .nav-links {
+            display: flex;
+            gap: 30px; /* 链接之间的间距 */
+        }
+        
+        /* 导航链接样式 */
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.3s; /* 平滑过渡效果 */
+            cursor: pointer;
+        }
+        
+        /* 导航链接悬停效果 */
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+        
+        /* 社交图标容器 */
+        .social-icons {
+            display: flex;
+            gap: 15px; /* 图标之间的间距 */
+        }
+        
+        /* 单个社交图标样式 */
+        .social-icon {
+            color: white;
+            font-size: 18px;
+        }
+        
+        /* 自定义图标样式 */
+        .custom-icon {
+            height: 30px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        /* 图标悬停效果 */
+        .custom-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* 主要内容区域 - 英雄图片部分 */
+        .hero {
+            height: 100vh; /* 视口高度 */
+            width: 100%;
+            position: relative;
+            background-image: url('images/DSC01624.jpg'); /* 占位图片 */
+            background-size: cover; /* 图片覆盖整个区域 */
+            background-position: center 70%; /* 调整这里：水平居中，垂直位置下移 */
+            display: flex;
+            align-items: flex-end; /* 内容位于底部 */
+            padding-bottom: 15%;
+        }
+        
+        /* 英雄区域的暗色遮罩 */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
+        }
+        
+        /* 英雄区域的文本内容 */
+        .hero-content {
+            position: relative;
+            z-index: 2; /* 确保内容在遮罩之上 */
+            padding-left: 10%;
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+        }
+        
+        /* 主标题样式 */
+        .hero-title {
+            font-size: 60px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+        
+        /* 副标题样式 */
+        .hero-subtitle {
+            letter-spacing: 8px; /* 字母间距 */
+            font-size: 18px;
+            font-weight: 300;
+            font-family: 'Calluna', 'Alibaba', 'din-next-w01-light', Arial, sans-serif;
+        }
+        
+        /* About和Education内容区样式 */
+        .about-content, .education-content {
+            position: relative;
+            z-index: 2;
+            padding-left: 10%;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            position: absolute;
+            bottom: 15%;
+            left: 0;
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+            pointer-events: none;
+        }
+        
+        .about-content.active, .education-content.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .hero-content.hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            pointer-events: none;
+        }
+        
+        .about-title, .education-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+        
+        .about-text, .education-text {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-family: 'Alibaba', 'din-next-w01-light', Arial, sans-serif;
+        }
+        
+        /* 水印样式 */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4); /* 降低不透明度，使水印更淡 */
+            z-index: 999;
+            font-family: 'Alibaba', Arial, sans-serif;
+            pointer-events: none; /* 防止水印干扰交互 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* 减轻文字阴影 */
+            font-weight: 300; /* 使用更细的字体 */
+        }
+        
+        /* 响应式设计 - 大型平板设备 */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 50px; /* 减小标题字体 */
+            }
+            
+            .about-title, .education-title {
+                font-size: 28px;
+            }
+        }
+        
+        /* 响应式设计 - 平板设备 */
+        @media (max-width: 768px) {
+            .nav-container {
+                width: 95%; /* 更宽的容器 */
+            }
+            
+            .nav-links {
+                gap: 20px; /* 减小链接间距 */
+            }
+            
+            .hero-title {
+                font-size: 40px; /* 进一步减小标题 */
+            }
+            
+            .hero-subtitle {
+                letter-spacing: 6px;
+                font-size: 16px;
+            }
+            
+            .about-title, .education-title {
+                font-size: 24px;
+            }
+            
+            .about-content, .education-content {
+                max-width: 80%;
+            }
+        }
+        
+        /* 响应式设计 - 移动设备 */
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 15px; /* 更小的链接间距 */
+            }
+            
+            .logo {
+                font-size: 20px; /* 减小logo字体 */
+            }
+            
+            .hero-content {
+                padding-left: 5%; /* 减小内容左边距 */
+            }
+            
+            .hero-title {
+                font-size: 30px; /* 显著减小标题字体 */
+            }
+            
+            .hero-subtitle {
+                letter-spacing: 4px;
+                font-size: 14px;
+            }
+            
+            .about-content, .education-content {
+                padding-left: 5%;
+            }
+            
+            .about-title, .education-title {
+                font-size: 22px;
+            }
+            
+            .watermark {
+                font-size: 12px; /* 在移动设备上减小水印大小 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页头导航区域 -->
+    <header>
+        <div class="nav-container">
+            <!-- 导航链接区域，保留About链接并添加Education链接 -->
+            <div class="nav-links">
+                <a href="#" id="about-link">关于</a>
+                <a href="#" id="education-link">教育经历</a>
+            </div>
+            <!-- 社交媒体图标，改为自定义图标 -->
+            <div class="social-icons">
+                <!-- 自定义LIUYING图标 -->
+                <a href="https://richard-cheng.notion.site/Golden-Hour-10b75d5fafe680c8b6dec25301617ae1" target="_blank" class="social-icon">
+                    <img src="images/LIUYING.png" alt="LIUYING" class="custom-icon">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主视觉区域 -->
+    <section class="hero">
+        <!-- 暗色遮罩层 -->
+        <div class="hero-overlay"></div>
+        
+        <!-- 标题和副标题内容 -->
+        <div class="hero-content" id="home-content">
+            <h1 class="hero-title">Haonan Cheng</h1>
+            <p class="hero-subtitle">NITEFLYTE</p>
+        </div>
+        
+        <!-- About内容区域 -->
+        <div class="about-content" id="about-content">
+            <h2 class="about-title">关于</h2>
+            <p class="about-text">
+                您好，我是程昊楠，这是我的个人信息介绍网页。
+            </p>
+            <p class="about-text">
+                信息于2025年3月更新。
+            </p>
+        </div>
+    </section>
+
+    <!-- Education内容区域 -->
+    <div class="education-content" id="education-content">
+        <h2 class="education-title">教育经历</h2>
+        <p class="education-text">
+            <strong>中国地质大学（武汉）</strong><br>
+            工学学士, 2018-2022<br>
+        </p>
+        <p class="education-text">
+            <strong>中国地质大学（武汉）</strong><br>
+            管理学硕士, 2022-2025<br>
+        </p>
+        <p class="education-text">
+            <strong>中国科学院 地理科学与资源研究所</strong><br>
+            访问学生, 2021-2022 / 2023-2025<br>
+        </p>
+    </div>
+
+    <!-- 添加水印 -->
+    <div class="watermark"><i>The background photo was taken by CHN at Daikichiyama Observation Deck, Uji city.</i></div>
+
+    <script>
+        // 获取DOM元素
+        const aboutLink = document.getElementById('about-link');
+        const educationLink = document.getElementById('education-link');
+        const homeContent = document.getElementById('home-content');
+        const aboutContent = document.getElementById('about-content');
+        const educationContent = document.getElementById('education-content');
+        
+        // 添加About点击事件监听器
+        aboutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 切换内容显示
+            if (aboutContent.classList.contains('active')) {
+                // 如果About内容已经显示，切换回主页内容
+                homeContent.classList.remove('hidden');
+                aboutContent.classList.remove('active');
+                // 确保Education内容也被隐藏
+                educationContent.classList.remove('active');
+            } else {
+                // 如果About内容未显示，显示About内容
+                homeContent.classList.add('hidden');
+                aboutContent.classList.add('active');
+                // 确保Education内容被隐藏
+                educationContent.classList.remove('active');
+            }
+        });
+        
+        // 添加Education点击事件监听器
+        educationLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 切换内容显示
+            if (educationContent.classList.contains('active')) {
+                // 如果Education内容已经显示，切换回主页内容
+                homeContent.classList.remove('hidden');
+                educationContent.classList.remove('active');
+                // 确保About内容也被隐藏
+                aboutContent.classList.remove('active');
+            } else {
+                // 如果Education内容未显示，显示Education内容
+                homeContent.classList.add('hidden');
+                educationContent.classList.add('active');
+                // 确保About内容被隐藏
+                aboutContent.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
