@@ -1,0 +1,338 @@
+/* 导入主要字体 - Calluna Regular */
+@font-face {
+    font-family: 'Calluna';
+    src: url('Fonts/Calluna/Calluna-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 导入次要字体 - 用于副标题，保留原来的字体作为备用 */
+@font-face {
+    font-family: 'din-next-w01-light';
+    src: url('//static.parastorage.com/fonts/v2/eca8b0cd-45d8-43cf-aee7-ca462bc5497c/v1/din-next-w01-light.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 导入中文字体 - 阿里巴巴普惠体 */
+@font-face {
+    font-family: 'Alibaba';
+    src: url('Fonts/alibaba.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 重置所有元素的默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 主体样式 */
+body {
+    font-family: 'Calluna', 'Alibaba', Arial, sans-serif;
+    overflow-x: hidden;
+    color: white;
+    background-color: #000;
+}
+
+/* 设置英文字体与标题一致 */
+html[lang="en"] body {
+    font-family: 'Calluna', Arial, sans-serif;
+}
+
+/* 确保英文版本中的文本内容使用正确的字体，但排除首页标题 */
+html[lang="en"] .about-text,
+html[lang="en"] .education-text,
+html[lang="en"] .skills-list li,
+html[lang="en"] p:not(.hero-subtitle),
+html[lang="en"] strong,
+html[lang="en"] span {
+    font-family: 'Calluna', Arial, sans-serif !important;
+}
+
+/* 确保首页标题始终使用原始字体，无论当前语言 */
+.hero-title, .hero-subtitle {
+    font-family: 'Calluna', Arial, sans-serif !important;
+}
+
+/* 确保中文状态下使用中文字体，但排除首页标题 */
+html[lang="zh"] .about-text,
+html[lang="zh"] .education-text,
+html[lang="zh"] .skills-list li,
+html[lang="zh"] p:not(.hero-subtitle),
+html[lang="zh"] strong,
+html[lang="zh"] span {
+    font-family: 'Alibaba', 'din-next-w01-light', Arial, sans-serif;
+}
+
+/* 导航栏样式 */
+header {
+    position: fixed; /* 固定在顶部 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* 确保导航栏在其他元素之上 */
+    padding: 20px 0;
+}
+
+/* 导航栏内容容器 */
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 网站标志样式 */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    text-decoration: none;
+}
+
+/* 导航链接容器 */
+.nav-links {
+    display: flex;
+    gap: 30px; /* 链接之间的间距 */
+}
+
+/* 导航链接样式 */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.3s; /* 平滑过渡效果 */
+    cursor: pointer;
+}
+
+/* 导航链接悬停效果 */
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+/* 社交图标容器 */
+.social-icons {
+    display: flex;
+    gap: 15px; /* 图标之间的间距 */
+    align-items: center; /* 确保垂直居中对齐 */
+}
+
+/* 单个社交图标样式 */
+.social-icon {
+    color: white;
+    font-size: 18px;
+}
+
+/* 自定义图标样式 */
+.custom-icon {
+    height: 30px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+/* 图标悬停效果 */
+.custom-icon:hover {
+    transform: scale(1.1);
+}
+
+/* 语言切换按钮样式 */
+#lang-switch {
+    color: white;
+    transition: opacity 0.3s;
+    margin-left: 15px; /* 与图标保持一定距离 */
+    font-size: 14px;
+    text-decoration: none; /* 移除下划线 */
+    font-weight: normal; /* 设置为正常粗细，非加粗 */
+    transform: translateY(-3px); /* 上移3像素 */
+    display: inline-block; /* 确保transform生效 */
+}
+
+#lang-switch:hover {
+    opacity: 0.7;
+}
+
+/* 主要内容区域 - 英雄图片部分 */
+.hero {
+    height: 100vh; /* 视口高度 */
+    width: 100%;
+    position: relative;
+    background-image: url('images/DSC01624.jpg'); /* 占位图片 */
+    background-size: cover; /* 图片覆盖整个区域 */
+    background-position: center 70%; /* 调整这里：水平居中，垂直位置下移 */
+    display: flex;
+    align-items: flex-end; /* 内容位于底部 */
+    padding-bottom: 15%;
+}
+
+/* 英雄区域的暗色遮罩 */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
+}
+
+/* 英雄区域的文本内容 */
+.hero-content {
+    position: relative;
+    z-index: 2; /* 确保内容在遮罩之上 */
+    padding-left: 10%;
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 主标题样式 */
+.hero-title {
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+/* 副标题样式 */
+.hero-subtitle {
+    letter-spacing: 8px; /* 字母间距 */
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Calluna', 'Alibaba', 'din-next-w01-light', Arial, sans-serif;
+}
+
+/* About和Education内容区样式 */
+.about-content, .education-content {
+    position: absolute;
+    z-index: 2;
+    padding-left: 10%;
+    max-width: 600px;
+    bottom: 15%;
+    left: 0;
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    transform: translateX(-20px);
+    filter: blur(5px);
+}
+
+.about-content.active, .education-content.active {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+    pointer-events: auto;
+}
+
+.hero-content.hidden {
+    opacity: 0;
+    transform: translateX(20px);
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.about-title, .education-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.about-text, .education-text {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-family: 'Alibaba', 'din-next-w01-light', Arial, sans-serif;
+    text-align: justify;
+}
+
+/* 水印样式 */
+.watermark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4); /* 降低不透明度，使水印更淡 */
+    z-index: 999;
+    font-family: 'Alibaba', Arial, sans-serif;
+    pointer-events: none; /* 防止水印干扰交互 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* 减轻文字阴影 */
+    font-weight: 300; /* 使用更细的字体 */
+}
+
+/* 响应式设计 - 大型平板设备 */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 50px; /* 减小标题字体 */
+    }
+    
+    .about-title, .education-title {
+        font-size: 28px;
+    }
+}
+
+/* 响应式设计 - 平板设备 */
+@media (max-width: 768px) {
+    .nav-container {
+        width: 95%; /* 更宽的容器 */
+    }
+    
+    .nav-links {
+        gap: 20px; /* 减小链接间距 */
+    }
+    
+    .hero-title {
+        font-size: 40px; /* 进一步减小标题 */
+    }
+    
+    .hero-subtitle {
+        letter-spacing: 6px;
+        font-size: 16px;
+    }
+    
+    .about-title, .education-title {
+        font-size: 24px;
+    }
+    
+    .about-content, .education-content {
+        max-width: 80%;
+    }
+}
+
+/* 响应式设计 - 移动设备 */
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 15px; /* 更小的链接间距 */
+    }
+    
+    .logo {
+        font-size: 20px; /* 减小logo字体 */
+    }
+    
+    .hero-content {
+        padding-left: 5%; /* 减小内容左边距 */
+    }
+    
+    .hero-title {
+        font-size: 30px; /* 显著减小标题字体 */
+    }
+    
+    .hero-subtitle {
+        letter-spacing: 4px;
+        font-size: 14px;
+    }
+    
+    .about-content, .education-content {
+        padding-left: 5%;
+    }
+    
+    .about-title, .education-title {
+        font-size: 22px;
+    }
+    
+    .watermark {
+        font-size: 12px; /* 在移动设备上减小水印大小 */
+    }
+}
