@@ -242,7 +242,7 @@ header {
 }
 
 .about-text, .education-text {
-    line-height: 1.6;
+    line-height: 1.2;
     margin-bottom: 20px;
     font-family: 'Alibaba', 'din-next-w01-light', Arial, sans-serif;
     text-align: justify;
@@ -256,6 +256,25 @@ header {
     list-style-position: inside;
     padding-left: 0;
     margin-left: 0;
+    line-height: 1.2; /* 与正文行距一致 */
+    font-family: inherit; /* 继承父元素字体 */
+    font-size: inherit; /* 继承父元素字体大小 */
+}
+
+/* 单独的列表项样式，确保与正文一致 */
+.skills-list li {
+    margin-bottom: 10px; /* 与段落底部边距一致 */
+}
+
+/* 统一文本元素样式 */
+p, .about-text, .education-text, .skills-list, li, strong, span {
+    line-height: 1.2;
+    margin-bottom: 20px; /* 段落间距 */
+}
+
+/* 最后一个元素不需要底部边距 */
+p:last-child, .about-text:last-child, .education-text:last-child, .skills-list li:last-child {
+    margin-bottom: 0;
 }
 
 /* 水印样式 */
@@ -378,3 +397,4 @@ html[lang="en"] .watermark span {
         font-size: 12px; /* 在移动设备上减小水印大小 */
     }
 }
+

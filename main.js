@@ -100,6 +100,7 @@ function updatePageContent(lang) {
     });
 }
 
+
 /**
  * 添加新内容指南:
  * 
