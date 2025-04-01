@@ -248,6 +248,16 @@ header {
     text-align: justify;
 }
 
+/* 技能列表样式 */
+.skills-list {
+    text-align: justify;
+    text-justify: inter-word;
+    width: 100%;
+    list-style-position: inside;
+    padding-left: 0;
+    margin-left: 0;
+}
+
 /* 水印样式 */
 .watermark {
     position: fixed;
