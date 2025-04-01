@@ -1,92 +1,89 @@
-<!DOCTYPE html>
-<html lang="zh">
+<!DOCTYPE html> 
+<html lang="zh">  
+<head>     
+    <!-- 设置页面编码 -->     
+    <meta charset="UTF-8">     
+    <!-- 设置视口，使页面在不同设备上正确缩放 -->     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <!-- 页面标题 -->     
+    <title>Haonan Cheng</title>     
+    <!-- 引入CSS样式文件 -->     
+    <link rel="stylesheet" href="styles.css"> 
 
-<head>
-    <!-- 设置页面编码 -->
-    <meta charset="UTF-8">
-    <!-- 设置视口，使页面在不同设备上正确缩放 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 页面标题 -->
-    <title>Haonan Cheng</title>
-    <!-- 引入CSS样式文件 -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <!-- 页头导航区域 -->
-    <header>
-        <div class="nav-container">
-            <!-- 导航链接区域 -->
-            <div class="nav-links">
-                <a href="#" id="about-link" data-lang-key="about"></a>
-                <a href="#" id="education-link" data-lang-key="education"></a>
-            </div>
-            <!-- 社交媒体图标和语言切换按钮 -->
-            <div class="social-icons">
-                <!-- 自定义LIUYING图标 -->
-                <a href="https://richard-cheng.notion.site/Golden-Hour-10b75d5fafe680c8b6dec25301617ae1" target="_blank" class="social-icon">
-                    <img src="images/LIUYING.png" alt="LIUYING" class="custom-icon">
-                </a>
-                <!-- 语言切换按钮 -->
-                <a href="#" id="lang-switch">中/EN</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- 主视觉区域 -->
-    <section class="hero">
-        <!-- 暗色遮罩层 -->
-        <div class="hero-overlay"></div>
-        
-        <!-- 标题和副标题内容 -->
-        <div class="hero-content" id="home-content">
-            <h1 class="hero-title">Haonan Cheng</h1>
-            <p class="hero-subtitle">NITEFLYTE</p>
-        </div>
-        
-        <!-- About内容区域 -->
-        <div class="about-content" id="about-content">
-            <h2 class="about-title" data-lang-key="aboutTitle"></h2>
-            <p class="about-text" data-lang-key="greeting"></p>
-            
-            <p data-lang-key="skills"></p>
-            <ul class="skills-list" style="padding-left: 0; margin-left: 0; list-style-position: inside; font-family: inherit; font-size: inherit;">
-                <li data-lang-key="skill1"></li>
-                <li data-lang-key="skill2"></li>
-                <li data-lang-key="skill3"></li>
-                <li data-lang-key="skill4"></li>
-            </ul>
-
-            <br>
-
-            <p class="about-text" data-lang-key="updated"></p>
-        </div>
-    </section>
-
-    <!-- Education内容区域 -->
-    <div class="education-content" id="education-content">
-        <h2 class="education-title" data-lang-key="educationTitle"></h2>
-        <div class="education-text">
-            <strong data-lang-key="university1"></strong><br>
-            <span data-lang-key="degree1"></span>, 2018-2022<br>
-        </div>
-        <div class="education-text">
-            <strong data-lang-key="university2"></strong><br>
-            <span data-lang-key="degree2"></span>, 2022-2026<br>
-        </div>
-        <div class="education-text">
-            <strong data-lang-key="university3"></strong><br>
-            <span data-lang-key="degree3"></span>, 2021-2022 / 2023-2025<br>
-        </div>
-    </div>
-
-    <!-- 添加水印 -->
-    <div class="watermark" data-lang-key="watermark"></div>
-
-    <!-- 引入语言数据文件 -->
-    <script src="languages.js"></script>
-    <!-- 引入主要脚本文件 -->
-    <script src="main.js"></script>
-</body>
-
+</head>  
+<body>     
+    <!-- 页头导航区域 -->     
+    <header>         
+        <div class="nav-container">             
+            <!-- 导航链接区域 -->             
+            <div class="nav-links">                 
+                <a href="#" id="about-link" data-lang-key="about"></a>                 
+                <a href="#" id="education-link" data-lang-key="education"></a>             
+            </div>             
+            <!-- 社交媒体图标和语言切换按钮 -->             
+            <div class="social-icons">                 
+                <!-- 邮件图标 -->                 
+                <a href="https://mailhide.io/en/e/LQtS9EEO" target="_blank" class="social-icon">                     
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="custom-icon">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>                 
+                </a>                 
+                <!-- 语言切换按钮 -->                 
+                <a href="#" id="lang-switch">中/EN</a>             
+            </div>         
+        </div>     
+    </header>      
+    <!-- 主视觉区域 -->     
+    <section class="hero">         
+        <!-- 暗色遮罩层 -->         
+        <div class="hero-overlay"></div>                  
+        <!-- 标题和副标题内容 -->         
+        <div class="hero-content" id="home-content">             
+            <h1 class="hero-title">Haonan Cheng</h1>             
+            <p class="hero-subtitle">NITEFLYTE</p>         
+        </div>                  
+        <!-- About内容区域 -->         
+        <div class="about-content" id="about-content">             
+            <h2 class="about-title" data-lang-key="aboutTitle"></h2>             
+            <p class="about-text" data-lang-key="greeting"></p>                          
+            <p data-lang-key="skills"></p>             
+            <ul class="skills-list" style="padding-left: 0; margin-left: 0; list-style-position: inside; font-family: inherit; font-size: inherit;">                 
+                <li data-lang-key="skill1"></li>                 
+                <li data-lang-key="skill2"></li>                 
+                <li data-lang-key="skill3"></li>                 
+                <li data-lang-key="skill4"></li>             
+            </ul>              
+            <br>              
+            <p class="about-text" data-lang-key="updated"></p>         
+        </div>     
+    </section>      
+    <!-- Education内容区域 -->     
+    <div class="education-content" id="education-content">         
+        <h2 class="education-title" data-lang-key="educationTitle"></h2>         
+        <div class="education-text">             
+            <strong data-lang-key="university1"></strong><br>             
+            <span data-lang-key="degree1"></span>, 2018-2022<br>         
+        </div>         
+        <div class="education-text">             
+            <strong data-lang-key="university2"></strong><br>             
+            <span data-lang-key="degree2"></span>, 2022-2026<br>         
+        </div>         
+        <div class="education-text">             
+            <strong data-lang-key="university3"></strong><br>             
+            <span data-lang-key="degree3"></span>, 2021-2022 / 2023-2025<br>         
+        </div>     
+    </div>      
+    <!-- 添加水印 -->     
+    <div class="watermark">
+        <span data-lang-key="watermark"></span>
+        <a href="https://richard-cheng.notion.site/Golden-Hour-10b75d5fafe680c8b6dec25301617ae1" target="_blank" class="watermark-icon">                     
+            <img src="images/LIUYING.png" alt="LIUYING">                 
+        </a>
+    </div>      
+    <!-- 引入语言数据文件 -->     
+    <script src="languages.js"></script>     
+    <!-- 引入主要脚本文件 -->     
+    <script src="main.js"></script> 
+</body>  
 </html>

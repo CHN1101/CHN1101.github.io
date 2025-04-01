@@ -274,7 +274,15 @@ header {
 
 /* 流萤图标和水印的样式 */
 .watermark {
-    font-family: inherit !important; /* 确保字体在语言切换时不变 */
+    font-family: 'Calluna', Arial, sans-serif !important; /* 使用固定字体，确保不受语言影响 */
+    font-style: italic; /* 添加斜体样式 */
+}
+
+/* 确保水印中的span不受语言切换影响 */
+html[lang="zh"] .watermark span,
+html[lang="en"] .watermark span {
+    font-family: 'Calluna', Arial, sans-serif !important; /* 强制使用相同字体 */
+    font-style: italic; /* 确保斜体样式在所有语言状态下都保持 */
 }
 .watermark-icon {
     display: inline-flex;
