@@ -398,3 +398,64 @@ html[lang="en"] .watermark span {
     }
 }
 
+/* 简约高级的滚动样式 */
+.content-scrollable {
+    /* 不改变定位方式，保持原位置 */
+    overflow: hidden;
+    max-height: 60vh;
+}
+
+.content-scrollable .content-title {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: transparent;
+}
+
+.content-scrollable .content-title h2 {
+    margin-bottom: 15px; /* 与原始样式中的标题边距保持一致 */
+}
+
+.content-scrollable .content-body {
+    overflow-y: auto;
+    max-height: calc(60vh - 60px); /* 减去标题高度 */
+    padding-right: 10px;
+    
+    /* 滚动条美化 - 支持 Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* 自定义滚动条 - Webkit/Chrome/Safari */
+.content-body::-webkit-scrollbar {
+    width: 4px; /* 更纤细的滚动条 */
+}
+
+.content-body::-webkit-scrollbar-track {
+    background: transparent; /* 完全透明的轨道 */
+    margin: 4px 0; /* 轨道上下留出空间 */
+}
+
+.content-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3); /* 半透明白色 */
+    border-radius: 4px; /* 圆角滚动条 */
+    transition: background 0.3s ease; /* 平滑过渡效果 */
+}
+
+/* 滚动条悬停效果 */
+.content-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5); /* 悬停时略微明显 */
+}
+
+/* 当不滚动时淡出滚动条 */
+.content-body:not(:hover)::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15); /* 更加透明 */
+}
+
+/* 确保在移动设备上的滚动体验也很好 */
+@media (max-width: 768px) {
+    .content-body::-webkit-scrollbar {
+        width: 3px; /* 在移动设备上更窄 */
+    }
+}
+
