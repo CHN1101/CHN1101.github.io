@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backgrounds = [
         {
             file: 'DSC01624.jpg',
-            watermark: 'The background photo was taken by CHN at Daikichiyama Observation Deck, Uji city.'
+            watermark: 'The background photo was taken by CHN at Daikichiyama Observation Deck, Uji.'
         },
         {
             file: 'DSC05718.JPG', // 替换为你实际的图片名称
@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             file: 'DSC01167.JPG', // 替换为你实际的图片名称
             watermark: 'This background photo was taken by CHN at Tokyo Tower, Tokyo.' // 替换为实际水印
+        },
+        {
+            file: 'DSC04431.JPG', // 替换为你实际的图片名称
+            watermark: 'This background photo was taken by CHN at the 3rd Sea Bathing Place, Qingdao.' // 替换为实际水印
         },
         {
             file: 'DSC07487.JPG', // 替换为你实际的图片名称
