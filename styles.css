@@ -459,3 +459,22 @@ html[lang="en"] .watermark span {
     }
 }
 
+/* 背景切换按钮样式 */
+#bg-switcher {
+    transition: transform 0.3s ease;
+}
+
+#bg-switcher:hover {
+    transform: scale(1.1);
+}
+
+/* 背景切换时的平滑过渡 */
+.hero {
+    transition: background-image 0.8s ease;
+}
+
+/* 调整所有导航图标的大小 */
+.social-icons .custom-icon {
+    width: 22px;
+    height: 22px;
+}
