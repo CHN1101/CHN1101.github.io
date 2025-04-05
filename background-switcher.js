@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
             watermark: 'This background photo was taken by CHN at the Central, Hong Kong.' // 替换为实际水印
         },
         {
+            file: 'DSC03763.JPG', // 替换为你实际的图片名称
+            watermark: '『チ。ー地球の運動についてー』' // 替换为实际水印
+        },
+        {
             file: 'DSC07487.JPG', // 替换为你实际的图片名称
             watermark: 'An eagle, taken by CHN on the Tibetan Plateau.' // 替换为实际水印
         }
