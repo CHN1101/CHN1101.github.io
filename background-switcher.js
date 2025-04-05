@@ -6,35 +6,43 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 背景图片及其对应水印
     const backgrounds = [
+
         {
             file: 'DSC01624.jpg',
             watermark: 'The background photo was taken by CHN at Daikichiyama Observation Deck, Uji.'
         },
+
         {
             file: 'DSC05718.JPG', // 替换为你实际的图片名称
             watermark: 'This background photo was taken by CHN at The Bund, Shanghai.' // 替换为实际水印
         },
+
         {
             file: 'DSC01167.JPG', // 替换为你实际的图片名称
             watermark: 'This background photo was taken by CHN at Tokyo Tower, Tokyo.' // 替换为实际水印
         },
-        {
-            file: 'DSC04431.JPG', // 替换为你实际的图片名称
-            watermark: 'This background photo was taken by CHN at the 3rd Sea Bathing Place, Qingdao.' // 替换为实际水印
-        },
+
+        /* {
+            file: 'DSC04431.JPG',
+            watermark: 'This background photo was taken by CHN at the 3rd Sea Bathing Place, Qingdao.'
+        }, */
+
         {
             file: 'DSC00303.JPG', // 替换为你实际的图片名称
             watermark: 'This background photo was taken by CHN at the Central, Hong Kong.' // 替换为实际水印
         },
+
         {
             file: 'DSC03763.JPG', // 替换为你实际的图片名称
             watermark: '『チ。ー地球の運動についてー』' // 替换为实际水印
         },
+
         {
             file: 'DSC07487.JPG', // 替换为你实际的图片名称
             watermark: 'An eagle, taken by CHN on the Tibetan Plateau.' // 替换为实际水印
         }
         // 可以继续添加更多背景图片和水印
+
     ];
     
     // 创建背景切换按钮
